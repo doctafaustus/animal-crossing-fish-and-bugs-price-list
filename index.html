@@ -1,0 +1,910 @@
+<html>
+<head>
+  <style>
+    h1 {
+      text-align: center;
+    }
+    ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+    }
+    .list li {
+      display: grid;
+      grid-template-columns: 40px 130px 70px 90px 90px 90px 200px;
+      text-align: center;
+      border: solid 1px #eee;
+    }
+    .list li div {
+      padding: 8px 4px;
+      align-self: center;
+      /* border: solid 1px red; */
+    }
+    .list span {
+      display: block;
+    }
+    .name {
+      font-weight: bold;
+      margin-bottom: 2px;
+    }
+    .image img {
+      width: 50px;
+    }
+
+    .time {
+      font-size: 12px;
+    }
+    .time hr {
+      width: 50%;
+    }
+
+    @media (max-width: 767px) {
+      .list {
+        font-size: 12px;
+      }
+      .list li {
+        grid-template-columns: 25px 80px 1fr 1fr 1fr 1fr 80px;
+      }
+      .image img {
+        width: 30px;
+      }
+      .time {
+        font-size: 10px;
+      }
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+  <h1>Animal Crossing (NH) Fish & Bugs Price List</h1>
+
+  <section class="fish-section">
+    <h2>Fish</h2> 
+    <ul class="list fish-list">
+      <li class="title-row">
+        <div>No.</div>
+        <div>Name</div>
+        <div>Price</div>
+        <div>Location</div>
+        <div>Shadow Size</div>
+        <div>Rarity</div>
+        <div>Time</div>
+      </li>
+    </ul>
+  </section>
+
+  <script>
+    var fish = getFish().sort((a, b) => {
+      if (a.name < b.name) return -1;
+      else if (a.name > b.name) return 1;
+      else return 0;
+    });
+    var fishList = document.querySelector('.fish-list');
+
+    var fishHTML = '';
+    fish.forEach(fish => {
+      fishHTML += `
+        <li>
+          <div class="no">${fish.no}</div>
+          <div class="name-container">
+            <span class="name">${fish.name}</span>
+            <span class="image"><img src="${fish.image}"></span>
+          </div>
+          <div class="price">${fish.price}</div>
+          <div class="location">${fish.location}</div>
+          <div class="shadow">${fish.shadow}</div>
+          <div class="rarity">${fish.rarity}</div>
+          <div class="time">${fish.time}</div>
+      `;
+    });
+
+    fishList.querySelector('.title-row').insertAdjacentHTML('afterend', fishHTML);
+
+
+    function getFish() {
+      return [
+        {
+          "no": "1",
+          "name": "Bitterling",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_1_i.png",
+          "shadow": "Small",
+          "price": "900",
+          "location": "River",
+          "time": "N: Nov ~ Mar<br>S: May ~ Sept<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "2",
+          "name": "Pale chub",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_2_i.png",
+          "shadow": "Very Small",
+          "price": "200",
+          "location": "River",
+          "time": "N: All Year<br>S: All Year<hr>Afternoon",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "3",
+          "name": "Crucian carp",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_3_i.png",
+          "shadow": "Small",
+          "price": "160",
+          "location": "River",
+          "time": "N: All Year<br>S: All Year<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "4",
+          "name": "Dace",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_4_i.png",
+          "shadow": "Medium",
+          "price": "240",
+          "location": "River",
+          "time": "N: All Year<br>S: All Year<hr>Morning, Evening, Night",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "12",
+          "name": "Soft-shelled turtle",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_12_i.png",
+          "shadow": "Large",
+          "price": "3750",
+          "location": "River",
+          "time": "N: Aug ~ Sept<br>S: Feb ~ Mar<hr>Morning, Evening, Night",
+          "rarity": "Common"
+        },
+        {
+          "no": "13",
+          "name": "Snapping turtle",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_13_i.png",
+          "shadow": "Large",
+          "price": "5000",
+          "location": "River",
+          "time": "N: Apr ~ Oct<br>S: Oct ~ Apr<hr>Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "16",
+          "name": "Freshwater goby",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_16_i.png",
+          "shadow": "Small",
+          "price": "400",
+          "location": "River",
+          "time": "N: All Year<br>S: All Year<hr>Morning, Evening, Night",
+          "rarity": "Common"
+        },
+        {
+          "no": "17",
+          "name": "Loach",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_17_i.png",
+          "shadow": "Small",
+          "price": "400",
+          "location": "River",
+          "time": "N: Mar ~ May<br>S: Sept ~ Nov<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "20",
+          "name": "Bluegill",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_20_i.png",
+          "shadow": "Small",
+          "price": "180",
+          "location": "River",
+          "time": "N: All Year<br>S: All Year<hr>Afternoon",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "21",
+          "name": "Yellow perch",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_21_i.png",
+          "shadow": "Medium",
+          "price": "300",
+          "location": "River",
+          "time": "N: Oct ~ Mar<br>S: Apr ~ Sept<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "22",
+          "name": "Black bass",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_22_i.png",
+          "shadow": "Large",
+          "price": "400",
+          "location": "River",
+          "time": "N: All Year<br>S: All Year<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "23",
+          "name": "Tilapia",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_23_i.png",
+          "shadow": "Medium",
+          "price": "800",
+          "location": "River",
+          "time": "N: June ~ Oct<br>S: Dec ~ Apr<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "24",
+          "name": "Pike",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_24_i.png",
+          "shadow": "Large",
+          "price": "1800",
+          "location": "River",
+          "time": "N: Sept ~ Dec<br>S: Mar ~ June<hr>All day",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "25",
+          "name": "Pond smelt",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_25_i.png",
+          "shadow": "Very Small",
+          "price": "400",
+          "location": "River",
+          "time": "N: Dec ~ Feb<br>S: June ~ Aug<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "26",
+          "name": "Sweetfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_26_i.png",
+          "shadow": "Medium",
+          "price": "900",
+          "location": "River",
+          "time": "N: July ~ Sept<br>S: Jan ~ Mar<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "33",
+          "name": "Mitten crab",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_33_i.png",
+          "shadow": "Small",
+          "price": "2000",
+          "location": "River",
+          "time": "N: Sept ~ Oct<br>S: Mar ~ May<hr>Morning, Evening, Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "34",
+          "name": "Guppy",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_34_i.png",
+          "shadow": "Very Small",
+          "price": "1300",
+          "location": "River",
+          "time": "N: Apr ~ Nov<br>S: Oct ~ May<hr>9am ~ 4pm",
+          "rarity": "Common"
+        },
+        {
+          "no": "35",
+          "name": "Nibble fish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_35_i.png",
+          "shadow": "Very Small",
+          "price": "1500",
+          "location": "River",
+          "time": "N: May ~ Sept<br>S: Nov ~ Mar<hr>9am ~ 4pm",
+          "rarity": "Common"
+        },
+        {
+          "no": "36",
+          "name": "Angelfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_36_i.png",
+          "shadow": "Small",
+          "price": "3000",
+          "location": "River",
+          "time": "N: May ~ Oct<br>S: Nov ~ Apr<hr>Morning, Evening, Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "37",
+          "name": "Betta",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_37_i.png",
+          "shadow": "Small",
+          "price": "2500",
+          "location": "River",
+          "time": "N: May ~ Oct<br>S: Nov ~ Apr<hr>9am ~ 4pm",
+          "rarity": "Rare"
+        },
+        {
+          "no": "38",
+          "name": "Neon tetra",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_38_i.png",
+          "shadow": "Very Small",
+          "price": "500",
+          "location": "River",
+          "time": "N: Apr ~ Nov<br>S: Oct ~ Apr<hr>9am ~ 4pm",
+          "rarity": "Common"
+        },
+        {
+          "no": "39",
+          "name": "Rainbowfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_39_i.png",
+          "shadow": "Very Small",
+          "price": "800",
+          "location": "River",
+          "time": "N: May ~ Oct<br>S: Nov ~ Apr<hr>Afternoon",
+          "rarity": "Common"
+        },
+        {
+          "no": "40",
+          "name": "Piranha",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_40_i.png",
+          "shadow": "Small",
+          "price": "2500",
+          "location": "River",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>Afternoon, Night",
+          "rarity": "Common"
+        },
+        {
+          "no": "41",
+          "name": "Arowana",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_41_i.png",
+          "shadow": "Large",
+          "price": "10000",
+          "location": "River",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>Morning, Evening, Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "42",
+          "name": "Dorado",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_42_i.png",
+          "shadow": "Large",
+          "price": "15000",
+          "location": "River",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>4am ~ 9pm",
+          "rarity": "Rare"
+        },
+        {
+          "no": "44",
+          "name": "Arapaima",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_44_i.png",
+          "shadow": "Huge",
+          "price": "10000",
+          "location": "River",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>Morning, Evening, Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "45",
+          "name": "Saddled bichir",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_45_i.png",
+          "shadow": "Large",
+          "price": "4000",
+          "location": "River",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "47",
+          "name": "Sea butterfly",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_47_i.png",
+          "shadow": "Very Small",
+          "price": "1000",
+          "location": "Sea",
+          "time": "N: Dec ~ Mar<br>S: Jun ~ Sept<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "48",
+          "name": "Sea horse",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_48_i.png",
+          "shadow": "Very Small",
+          "price": "1100",
+          "location": "Sea",
+          "time": "N: Apr ~ Nov<br>S: Oct ~ May<hr>All day",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "49",
+          "name": "Clown fish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_49_i.png",
+          "shadow": "Very Small",
+          "price": "650",
+          "location": "Sea",
+          "time": "N: Apr ~ Sept<br>S: Oct ~ May<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "50",
+          "name": "Surgeonfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_50_i.png",
+          "shadow": "Small",
+          "price": "1000",
+          "location": "Sea",
+          "time": "N: Apr ~ Sept<br>S: Oct ~ May<hr>All day",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "51",
+          "name": "Butterfly Fish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_51_i.png",
+          "shadow": "Small",
+          "price": "1000",
+          "location": "Sea",
+          "time": "N: Apr ~ Sept<br>S: Oct ~ May<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "52",
+          "name": "Napoleonfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_52_i.png",
+          "shadow": "Huge",
+          "price": "10000",
+          "location": "Sea",
+          "time": "N: July ~ Aug<br>S: Jan ~ Feb<hr>4am ~ 9pm",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "53",
+          "name": "Zebra turkeyfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_53_i.png",
+          "shadow": "Medium",
+          "price": "500",
+          "location": "Sea",
+          "time": "N: Apr ~ Nov<br>S: Oct ~ May<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "54",
+          "name": "Blowfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_54_i.png",
+          "shadow": "Medium",
+          "price": "5000",
+          "location": "Sea",
+          "time": "N: Nov ~ Feb<br>S: May ~ Sep<hr>9pm ~ 4am",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "55",
+          "name": "Puffer fish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_55_i.png",
+          "shadow": "Medium",
+          "price": "250",
+          "location": "Sea",
+          "time": "N: July ~ Sept<br>S: Jan ~ Mar<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "56",
+          "name": "Anchovy",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_56_i.png",
+          "shadow": "Small",
+          "price": "200",
+          "location": "Sea",
+          "time": "N: All Year<br>S: All Year<hr>Morning, Afternoon, Evening",
+          "rarity": "Common"
+        },
+        {
+          "no": "57",
+          "name": "Horse mackerel",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_57_i.png",
+          "shadow": "Small",
+          "price": "150",
+          "location": "Sea",
+          "time": "N: All Year<br>S: All Year<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "58",
+          "name": "Barred knifejaw",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_58_i.png",
+          "shadow": "Medium",
+          "price": "5000",
+          "location": "Sea",
+          "time": "N: Mar ~ Nov<br>S: Sept ~ May<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "59",
+          "name": "Sea bass",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_59_i.png",
+          "shadow": "Large",
+          "price": "400",
+          "location": "Sea",
+          "time": "N: All Year<br>S: All Year<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "60",
+          "name": "Red Snapper",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_60_i.png",
+          "shadow": "Large",
+          "price": "3000",
+          "location": "Sea",
+          "time": "N: All Year<br>S: All Year<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "61",
+          "name": "Dab",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_61_i.png",
+          "shadow": "Medium",
+          "price": "300",
+          "location": "Sea",
+          "time": "N: Oct ~ Apr<br>S: Apr ~ Oct<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "62",
+          "name": "Olive flounder",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_62_i.png",
+          "shadow": "Large",
+          "price": "800",
+          "location": "Sea",
+          "time": "N: All Year<br>S: All Year<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "63",
+          "name": "Squid",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_63_i.png",
+          "shadow": "Medium",
+          "price": "500",
+          "location": "Sea",
+          "time": "N: Dec ~ Aug<br>S: June ~ Feb<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "64",
+          "name": "Moray eel",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_64_i.png",
+          "shadow": "Long & Thin",
+          "price": "2000",
+          "location": "Sea",
+          "time": "N: Aug ~ Oct<br>S: Feb ~ Apr<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "65",
+          "name": "Ribbon eel",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_65_i.png",
+          "shadow": "Long & Thin",
+          "price": "600",
+          "location": "Sea",
+          "time": "N: June ~ Oct<br>S: Dec ~ Apr<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "70",
+          "name": "Ocean sunfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_70_i.png",
+          "shadow": "Finned",
+          "price": "4000",
+          "location": "Sea",
+          "time": "N: July ~ Sept<br>S: Jan ~ Mar<hr>Morning, Afternoon, Evening",
+          "rarity": "Rare"
+        },
+        {
+          "no": "71",
+          "name": "Ray",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_71_i.png",
+          "shadow": "Large",
+          "price": "3000",
+          "location": "Sea",
+          "time": "N: Aug ~ Nov<br>S: Feb ~ May<hr>4am ~ 9pm",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "72",
+          "name": "Saw Shark",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_72_i.png",
+          "shadow": "Finned",
+          "price": "12000",
+          "location": "Sea",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>Morning, Evening, Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "73",
+          "name": "Hammerhead shark",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_73_i.png",
+          "shadow": "Finned",
+          "price": "8000",
+          "location": "Sea",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>Morning, Evening, Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "74",
+          "name": "Great white shark",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_74_i.png",
+          "shadow": "Finned",
+          "price": "15000",
+          "location": "Sea",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>Morning, Evening, Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "75",
+          "name": "Whale shark",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_75_i.png",
+          "shadow": "Finned",
+          "price": "13000",
+          "location": "Sea",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>All day",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "76",
+          "name": "Suckerfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_76_i.png",
+          "shadow": "Finned",
+          "price": "1500",
+          "location": "Sea",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>All day",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "77",
+          "name": "Football fish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_77_i.png",
+          "shadow": "Large",
+          "price": "2500",
+          "location": "Sea",
+          "time": "N: Nov ~ Mar<br>S: May ~ Sept<hr>4pm - 9am",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "78",
+          "name": "Oarfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_78_i.png",
+          "shadow": "Huge",
+          "price": "9000",
+          "location": "Sea",
+          "time": "N: Dec ~ May<br>S: June ~ Nov<hr>All day",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "79",
+          "name": "Barreleye",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_79_i.png",
+          "shadow": "Small",
+          "price": "15000",
+          "location": "Sea",
+          "time": "N: All Year<br>S: All Year<hr>9pm ~ 4am",
+          "rarity": "Rare"
+        },
+        {
+          "no": "80",
+          "name": "Coelacanth",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_80_i.png",
+          "shadow": "Huge",
+          "price": "15000",
+          "location": "Sea",
+          "time": "N: All Year<br>S: All Year<hr>All day",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "5",
+          "name": "Carp",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_5_i.png",
+          "shadow": "Large",
+          "price": "300",
+          "location": "Pond",
+          "time": "N: All Year<br>S: All Year<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "6",
+          "name": "Koi",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_6_i.png",
+          "shadow": "Large",
+          "price": "4000",
+          "location": "Pond",
+          "time": "N: All Year<br>S: All Year<hr>Morning, Evening, Night",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "7",
+          "name": "Goldfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_7_i.png",
+          "shadow": "Very Small",
+          "price": "1300",
+          "location": "Pond",
+          "time": "N: All Year<br>S: All Year<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "8",
+          "name": "Pop-eyed goldfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_8_i.png",
+          "shadow": "Very Small",
+          "price": "1300",
+          "location": "Pond",
+          "time": "N: All Year<br>S: All Year<hr>Afternoon",
+          "rarity": "Common"
+        },
+        {
+          "no": "9",
+          "name": "Ranchu goldfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_9_i.png",
+          "shadow": "Small",
+          "price": "4500",
+          "location": "Pond",
+          "time": "N: All Year<br>S: All Year<hr>9am ~ 4pm",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "10",
+          "name": "Killifish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_10_i.png",
+          "shadow": "Very Small",
+          "price": "300",
+          "location": "Pond",
+          "time": "N: Apr ~ Aug<br>S: Dec ~ Feb<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "11",
+          "name": "Crawfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_11_i.png",
+          "shadow": "Small",
+          "price": "200",
+          "location": "Pond",
+          "time": "N: Apr ~ Sept<br>S: Oct ~ Mar<hr>All day",
+          "rarity": "Very Common"
+        },
+        {
+          "no": "14",
+          "name": "Tadpole",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_14_i.png",
+          "shadow": "Very Small",
+          "price": "100",
+          "location": "Pond",
+          "time": "N: Mar ~ July<br>S: Sept ~ Jan<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "15",
+          "name": "Frog",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_15_i.png",
+          "shadow": "Small",
+          "price": "120",
+          "location": "Pond",
+          "time": "N: May ~ Aug<br>S: Nov ~ Feb<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "18",
+          "name": "Catfish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_18_i.png",
+          "shadow": "Large",
+          "price": "800",
+          "location": "Pond",
+          "time": "N: May ~ Oct<br>S: Nov ~ Apr<hr>Morning, Evening, Night",
+          "rarity": "Common"
+        },
+        {
+          "no": "19",
+          "name": "Giant snakehead",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_19_i.png",
+          "shadow": "Large",
+          "price": "5500",
+          "location": "Pond",
+          "time": "N: June ~ Aug<br>S: Dec ~ Feb<hr>9am ~ 4pm",
+          "rarity": "Rare"
+        },
+        {
+          "no": "43",
+          "name": "Gar",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_43_i.png",
+          "shadow": "Huge",
+          "price": "6000",
+          "location": "Pond",
+          "time": "N: June ~ Sept<br>S: Dec ~ Mar<hr>Morning, Evening, Night",
+          "rarity": "Rare"
+        },
+        {
+          "no": "31",
+          "name": "Salmon",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_31_i.png",
+          "shadow": "Large",
+          "price": "700",
+          "location": "River (Mouth)",
+          "time": "N: Sept<br>S: Mar<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "32",
+          "name": "King salmon",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_32_i.png",
+          "shadow": "Large",
+          "price": "1800",
+          "location": "River (Mouth)",
+          "time": "N: Sept<br>S: Mar<hr>All day",
+          "rarity": "Common"
+        },
+        {
+          "no": "46",
+          "name": "Sturgeon",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_46_i.png",
+          "shadow": "Huge",
+          "price": "10000",
+          "location": "River (Mouth)",
+          "time": "N: Sept ~ Mar<br>S: Mar ~ Sept<hr>All day",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "27",
+          "name": "Cherry salmon",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_27_i.png",
+          "shadow": "Medium",
+          "price": "1000",
+          "location": "River (Clifftop)",
+          "time": "N: Mar ~ June, Sept ~ Nov<br>S: Sept ~ May<hr>4pm ~ 9am",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "28",
+          "name": "Char",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_28_i.png",
+          "shadow": "Medium",
+          "price": "3800",
+          "location": "River (Clifftop)",
+          "time": "N: Mar ~ June, Sept ~ Nov<br>S: Sept ~ May<hr>4pm ~ 9am",
+          "rarity": "Uncommon"
+        },
+        {
+          "no": "29",
+          "name": "Golden trout",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_29_i.png",
+          "shadow": "Medium",
+          "price": "15000",
+          "location": "River (Clifftop)",
+          "time": "N: Mar ~ May, Sept ~ Nov<br>S: Sept ~ May<hr>4pm ~ 9am",
+          "rarity": "Rare"
+        },
+        {
+          "no": "30",
+          "name": "String fish",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_30_i.png",
+          "shadow": "Huge",
+          "price": "15000",
+          "location": "River (Clifftop)",
+          "time": "N: Dec ~ Mar<br>S: June ~ Sept<hr>4pm ~ 9am",
+          "rarity": "Rare"
+        },
+        {
+          "no": "66",
+          "name": "Tuna",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_66_i.png",
+          "shadow": "Huge",
+          "price": "7000",
+          "location": "Pier",
+          "time": "N: Jan ~ Apr<br>S: May ~ Nov<hr>All day",
+          "rarity": "Rare"
+        },
+        {
+          "no": "67",
+          "name": "Blue marlin",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_67_i.png",
+          "shadow": "Huge",
+          "price": "10000",
+          "location": "Pier",
+          "time": "N: Jan ~ Apr, July ~ Sept, Nov ~ Dec<br>S: Jan ~ Mar, May ~ Oct<hr>All day",
+          "rarity": "Rare"
+        },
+        {
+          "no": "68",
+          "name": "Giant trevally",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_68_i.png",
+          "shadow": "Large",
+          "price": "4500",
+          "location": "Pier",
+          "time": "N: May ~ Oct<br>S: Nov ~ Apr<hr>All day",
+          "rarity": "Rare"
+        },
+        {
+          "no": "69",
+          "name": "Mahi-mahi",
+          "image": "https://gamewith-en.akamaized.net/article_tools/animal-crossing-new-horizons/gacha/sakana_69_i.png",
+          "shadow": "Huge",
+          "price": "12000",
+          "location": "Pier",
+          "time": "N: May ~ Oct<br>S: Nov ~ Apr<hr>All day",
+          "rarity": "Rare"
+        }
+      ];
+    }
+  </script>
+</body>  
+</html>
