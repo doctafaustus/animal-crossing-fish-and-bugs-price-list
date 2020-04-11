@@ -30,26 +30,35 @@
     .image img {
       width: 50px;
     }
-
     .time {
       font-size: 12px;
     }
     .time hr {
       width: 50%;
     }
-
+    .show-time {
+      display: none;
+    }
     @media (max-width: 767px) {
       .list {
         font-size: 12px;
       }
       .list li {
-        grid-template-columns: 25px 80px 1fr 1fr 1fr 1fr 80px;
+        grid-template-columns: 25px 80px 1fr 1fr 1fr 1fr 1fr;
       }
       .image img {
         width: 30px;
       }
+      .show-time {
+        display: block;
+      }
       .time {
+        display: none;
         font-size: 10px;
+        grid-column: 2 / -1;
+      }
+      .list li.time-shown .time {
+        display: block;
       }
     }
   </style>
@@ -94,11 +103,28 @@
           <div class="location">${fish.location}</div>
           <div class="shadow">${fish.shadow}</div>
           <div class="rarity">${fish.rarity}</div>
+          <div class="show-time"><a href="#">Show</a></div>
           <div class="time">${fish.time}</div>
       `;
     });
 
     fishList.querySelector('.title-row').insertAdjacentHTML('afterend', fishHTML);
+
+    var showTimeLinks = document.querySelectorAll('.show-time');
+    showTimeLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        var row = e.target.closest('li');
+
+        if (e.target.text === 'Show') {
+          row.classList.add('time-shown');
+          e.target.text = 'Hide';
+        } else {
+          row.classList.remove('time-shown');
+          e.target.text = 'Show';
+        }
+      })
+    });
 
 
     function getFish() {
