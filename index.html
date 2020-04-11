@@ -14,6 +14,8 @@
       grid-template-columns: 40px 130px 70px 90px 90px 90px 200px;
       text-align: center;
       border: solid 1px #eee;
+      border-left: none;
+      border-right: none;
     }
     .list li div {
       padding: 8px 4px;
@@ -41,10 +43,13 @@
     }
     @media (max-width: 767px) {
       .list {
-        font-size: 11.5px;
+        font-size: 10px;
       }
       .list li {
         grid-template-columns: 25px 80px 1fr 1fr 1fr 1fr 1fr;
+      }
+      .list li div {
+        padding: 4px;
       }
       .image img {
         width: 25px;
