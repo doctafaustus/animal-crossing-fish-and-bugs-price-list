@@ -221,23 +221,23 @@
       }
 
       critterListEl.querySelector('.title-row').insertAdjacentHTML('afterend', critterHTML);
+      var showTimeLinks = document.querySelectorAll(`.${critter}-list .show-time`);
+      showTimeLinks.forEach(link => {
+        link.addEventListener('click', e => {
+          e.preventDefault();
+          var row = e.target.closest('li');
+
+          if (e.target.text === 'Show') {
+            row.classList.add('time-shown');
+            e.target.text = 'Hide';
+          } else {
+            row.classList.remove('time-shown');
+            e.target.text = 'Show';
+          }
+        })
+      });
     }
 
-    var showTimeLinks = document.querySelectorAll('.show-time');
-    showTimeLinks.forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        var row = e.target.closest('li');
-
-        if (e.target.text === 'Show') {
-          row.classList.add('time-shown');
-          e.target.text = 'Hide';
-        } else {
-          row.classList.remove('time-shown');
-          e.target.text = 'Show';
-        }
-      })
-    });
 
 
     function getFish() {
