@@ -41,7 +41,7 @@ function getBugs() {
 	  	var object = {
 	  		no: $row.find('td:nth-child(1)').text(),
 	  		name: $row.find('td:nth-child(2) a').text(),
-	  		image: $row.find('td:nth-child(2) a img').attr('src'),
+	  		image: $row.find('td:nth-child(2) a img').attr('data-original'),
 	  		price: $row.find('td:nth-child(3)').text(),
 	  		time: $row.find('td:nth-child(4)').html()
 	  	};
