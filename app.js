@@ -15,6 +15,10 @@ app.get('/optimizely-test', (req, res) => {
 	res.sendFile(`${__dirname}/optimizely-test.html`);
 });
 
+app.get('/privacy-policy', (req, res) => {
+	res.sendFile(`${__dirname}/privacy-policy.html`);
+});
+
 app.listen(process.env.PORT || 3000, (req, res) => {
 	console.log('App listening on port 3000');
 });
