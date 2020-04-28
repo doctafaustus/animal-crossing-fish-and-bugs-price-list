@@ -32,6 +32,7 @@ data.forEach((item, i) => {
     "webhookForSlotFilling": false,
     "fallbackIntent": false,
     "events": [],
+    "endInteraction": true,
     "conditionalResponses": [],
     "condition": "",
     "conditionalFollowupEvents": []
@@ -55,11 +56,11 @@ data.forEach((item, i) => {
 
   const article = /a|e|i|o/.test(item.name.toLocaleLowerCase().charAt(0)) ? 'an' : 'a';
   mainIntentTemplate.id = i.toString();
-  mainIntentTemplate.name = `How much is ${article} ${item.name} worth?`;
+  mainIntentTemplate.name = item.name;
   mainIntentTemplate.responses[0].messages[0].speech = `${article} ${item.name} is worth ${item.price} bells.`;
 
   userSaysTemplate[0].id = (i + 1000).toString();
-  userSaysTemplate[0].data[0].text = `How much is ${article} ${item.name} worth?`;
+  userSaysTemplate[0].data[0].text = item.name;
 
   mainArray.push(mainIntentTemplate);
   userSaysArray.push(userSaysTemplate);
@@ -67,14 +68,14 @@ data.forEach((item, i) => {
 
 
 mainArray.forEach(obj => {
-  fs.writeFile(`./generated-intents/${obj.name.replace('?', '_')}.json`, JSON.stringify(obj), (err) => {
+  fs.writeFile(`./generated-intents/${obj.name}_.json`, JSON.stringify(obj), (err) => {
     if (err) return console.log(err);
     console.log('The main file was saved');
   });   
 });
 
 userSaysArray.forEach(obj => {
-  fs.writeFile(`./generated-intents/${obj[0].data[0].text.replace('?', '__usersays_en')}.json`, JSON.stringify(obj), (err) => {
+  fs.writeFile(`./generated-intents/${obj[0].data[0].text}__usersays_en.json`, JSON.stringify(obj), (err) => {
     if (err) return console.log(err);
     console.log('The user file was saved');
   });
