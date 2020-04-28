@@ -1,8 +1,27 @@
 <html>
 <head>
   <style>
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     h1 {
       text-align: center;
+    }
+    .donate {
+      color: #0000ee;
+      padding-left: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .bells {
+      width: 15px;
+      margin-right: 5px;
+    }
+    .lloid {
+      width: 35px;
+      margin-left: 5px;
     }
     nav {
       text-align: center;
@@ -77,7 +96,14 @@
     }
     @media (max-width: 767px) {
       h1 {
-        font-size: 24px;
+        font-size: 20px;
+        margin-bottom: 5px;
+      }
+      h2 {
+        margin: 8px 0;
+      }
+      #quick-search {
+        margin-top: 8px;
       }
       h2 {
         font-size: 20px;
@@ -124,7 +150,14 @@
   <title>Animal Crossing New Horizons Fish & Bugs Price List</title>
 </head>
 <body>
-  <h1>Animal Crossing (NH) Fish & Bugs Price List</h1>
+  <header>
+    <h1>Animal Crossing (NH) Fish & Bugs Price List</h1>
+    <a class="donate" href="https://paypal.me/acpricelist?locale.x=en_US">
+      <img class="bells" src="https://res.cloudinary.com/dormh2fvt/image/upload/v1588109219/Msc/bells.png">
+      Donate!
+      <img class="lloid" src="https://res.cloudinary.com/dormh2fvt/image/upload/v1588107204/Msc/Lloid.png">
+    </a>
+  </header> 
 
   <nav>
     <div class="nav-links">
